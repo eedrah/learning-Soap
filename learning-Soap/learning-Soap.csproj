@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62B01798-6F1C-4939-B0EE-6ADEDC98588D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>learning_Soap</RootNamespace>
+    <AssemblyName>learning-Soap</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service References\TestDecisionLogic\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\testHTTPS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="Service References\TestDecisionLogic\integration.wsdl" />
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.AddUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.AddUserSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.ArrayOfInt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.BankInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.BanksSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.BankTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.CreateRequest4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.CreateRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.DeleteRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetBankInformationByContentServiceIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetBankInformationByRoutingNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetMultipleReportDetailsFromCustomerIdentifier6Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetMultipleReportDetailsFromCustomerIdentifierResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetMultipleReportDetailsFromRequestCode6Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetMultipleReportDetailsFromRequestCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetProfileByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetProfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromCustomerIdentifier2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromCustomerIdentifier3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromCustomerIdentifier6Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromRequestCode2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromRequestCode3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromRequestCode4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromRequestCode5Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromRequestCode6Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromRequestCode7Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetReportDetailFromRequestCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetRequestRefreshableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetRequestStatus2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetRequestStatus3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetRequestStatuses2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetRequestStatuses3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetRequestStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetRequestStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.GetUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.HelloWorld_SSLOnlyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.InstantRefreshResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.ProfileSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.ReAssignRequestUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.ReportDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.ReportDetail2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.ReportDetail3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.ReportDetail4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.RequestSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.RequestStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.RequestStatus3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SearchBanksByBankNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SearchBanksByCountryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SearchReportSummaryAdvanced4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SearchReportSummaryAdvancedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SearchReportSummaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SearchTransactions2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SearchTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SendRequestBySMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.SiteUserSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.UpdateRequestWorkflowStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\TestDecisionLogic\learning_Soap.TestDecisionLogic.UpdateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\integration.wsdl" />
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.AddUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.AddUserSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.ArrayOfInt.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.BankInformation.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.BanksSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.BankTransaction.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.CreateRequest4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.CreateRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.DeleteRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetBankInformationByContentServiceIdResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetBankInformationByRoutingNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetMultipleReportDetailsFromCustomerIdentifier6Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetMultipleReportDetailsFromCustomerIdentifierResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetMultipleReportDetailsFromRequestCode6Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetMultipleReportDetailsFromRequestCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetProfileByNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetProfilesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromCustomerIdentifier2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromCustomerIdentifier3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromCustomerIdentifier6Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromRequestCode2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromRequestCode3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromRequestCode4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromRequestCode5Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromRequestCode6Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromRequestCode7Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetReportDetailFromRequestCodeResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetRequestRefreshableResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetRequestStatus2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetRequestStatus3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetRequestStatuses2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetRequestStatuses3Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetRequestStatusesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetRequestStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.GetUsersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.HelloWorldResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.HelloWorld_SSLOnlyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.InstantRefreshResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.ProfileSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.ReAssignRequestUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.ReportDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.ReportDetail2.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.ReportDetail3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.ReportDetail4.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.RequestSearchResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.RequestStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.RequestStatus3.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SearchBanksByBankNameResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SearchBanksByCountryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SearchReportSummaryAdvanced4Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SearchReportSummaryAdvancedResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SearchReportSummaryResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SearchTransactions2Response.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SearchTransactionsResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SendRequestBySMSResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.SiteUserSummary.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.UpdateRequestWorkflowStatusResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\testHTTPS\learning_Soap.testHTTPS.UpdateUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\TestDecisionLogic\" />
+    <WCFMetadataStorage Include="Service References\testHTTPS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TestDecisionLogic\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TestDecisionLogic\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\TestDecisionLogic\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\testHTTPS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\testHTTPS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\testHTTPS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

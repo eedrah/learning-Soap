@@ -1,0 +1,2486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.decisionlogic.com/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.decisionlogic.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.decisionlogic.com/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorld_SSLOnly">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorld_SSLOnlyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorld_SSLOnlyResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReportSummary">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchTerm" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeZoneOffset" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processStatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReportSummaryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchReportSummaryResult" type="tns:RequestSearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RequestSearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SearchResults" type="tns:ArrayOfSearchResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SearchResult" nillable="true" type="tns:SearchResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentServiceDisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoutingNumberInput" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberInput" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HolderNameInput" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SiteUserGuid" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastRefreshError" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProfileGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProfileName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCompleted" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchReportSummaryAdvanced">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteUserGuidMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDateCreated" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDateCreated" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateCreatedMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeZoneOffset" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerIdentifier" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerIdentifierMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="holderName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="holderNameMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="emailAddressMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="institution" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="institutionMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="routingNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="routingNumberMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="accountNumberMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="statusMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processStatusMode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReportSummaryAdvancedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchReportSummaryAdvancedResult" type="tns:RequestSearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReportSummaryAdvanced4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="siteUserGuidMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="profileGuidMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="fromDateCreated" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="toDateCreated" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateCreatedMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="timeZoneOffset" type="s:double" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerIdentifier" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="customerIdentifierMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="holderName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="holderNameMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="emailAddressMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="institution" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="institutionMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="routingNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="routingNumberMode" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="accountNumberMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="statusMode" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processStatus" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="processStatusMode" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchReportSummaryAdvanced4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchReportSummaryAdvanced4Result" type="tns:RequestSearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromRequestCodeResult" type="tns:ReportDetail" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReportDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstitutionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoutingNumberEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberFound" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameFound" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountInput" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLoginValid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AsOfDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityStartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityEndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCredits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDebits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActivityAvailable" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionSummaries" type="tns:ArrayOfTransactionSummary" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessedStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsError" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStarted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCompleted" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransactionSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionSummary" nillable="true" type="tns:TransactionSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionSummary">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunningBalance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsRefresh" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportDetailFromRequestCode2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromRequestCode2Result" type="tns:ReportDetail2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReportDetail2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstitutionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoutingNumberEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberFound" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountNumberConfidence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameFound" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NameConfidence" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountInput" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageBalanceRecent" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLoginValid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsVerified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AsOfDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityStartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityEndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCredits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDebits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActivityAvailable" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionAnalysisSummaries" type="tns:ArrayOfTransactionAnalysisSummary" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionSummaries" type="tns:ArrayOfTransactionSummary2" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessedStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsError" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStarted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCompleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransactionAnalysisSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionAnalysisSummary" nillable="true" type="tns:TransactionAnalysisSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionAnalysisSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecentCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecentAmount" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransactionSummary2">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionSummary2" nillable="true" type="tns:TransactionSummary2" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionSummary2">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunningBalance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeCodes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsRefresh" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportDetailFromRequestCode3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromRequestCode3Result" type="tns:ReportDetail3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReportDetail3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstitutionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoutingNumberEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberFound" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountNumberConfidence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameFound" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NameConfidence" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountInput" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageBalanceRecent" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLoginValid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsVerified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AsOfDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityStartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityEndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCredits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDebits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActivityAvailable" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionAnalysisSummaries" type="tns:ArrayOfTransactionAnalysisSummary3" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionSummaries" type="tns:ArrayOfTransactionSummary3" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessedStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStarted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCompleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCodeColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastRefreshErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsError" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsACHSupported" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransactionAnalysisSummary3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionAnalysisSummary3" nillable="true" type="tns:TransactionAnalysisSummary3" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionAnalysisSummary3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecentCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecentAmount" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransactionSummary3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionSummary3" nillable="true" type="tns:TransactionSummary3" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionSummary3">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunningBalance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeCodes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsRefresh" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportDetailFromRequestCode6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromRequestCode6Result" type="tns:ReportDetail4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ReportDetail4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerIdentifier" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="InstitutionName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoutingNumberEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountNumberFound" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AccountNumberConfidence" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameEntered" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NameFound" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="NameConfidence" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AmountInput" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AvailableBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="AverageBalanceRecent" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsLoginValid" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsVerified" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="AsOfDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityStartDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ActivityEndDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCredits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalDebits" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentBalance" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsActivityAvailable" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionAnalysisSummaries" type="tns:ArrayOfTransactionAnalysisSummary4" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransactionSummaries" type="tns:ArrayOfTransactionSummary4" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProcessedStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStarted" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsCompleted" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Notes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusText" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="StatusCodeColor" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastRefreshErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsError" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsACHSupported" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="AccountExpenses" type="tns:ArrayOfAccountExpense4" />
+          <s:element minOccurs="1" maxOccurs="1" name="ChartsId" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransactionAnalysisSummary4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionAnalysisSummary4" nillable="true" type="tns:TransactionAnalysisSummary4" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionAnalysisSummary4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="TypeName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalAmount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecentCount" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RecentAmount" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfTransactionSummary4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TransactionSummary4" nillable="true" type="tns:TransactionSummary4" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TransactionSummary4">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="RunningBalance" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeCodes" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsRefresh" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfAccountExpense4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="AccountExpense4" nillable="true" type="tns:AccountExpense4" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="AccountExpense4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="Percent" type="s:double" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetReportDetailFromRequestCode7">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode7Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromRequestCode7Result" type="tns:ReportDetail4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetRequestStatusResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestStatuses">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCodes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRequestStatusesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRequestStatusesResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRequestStatus2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestStatus2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRequestStatus2Result" type="tns:RequestStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RequestStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsFinal" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRequestStatus3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestStatus3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRequestStatus3Result" type="tns:RequestStatus3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="RequestStatus3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="RequestCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsFinal" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="LastError" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRequestStatuses2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCodes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestStatuses2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRequestStatuses2Result" type="tns:ArrayOfRequestStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRequestStatus">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RequestStatus" nillable="true" type="tns:RequestStatus" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRequestStatuses3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCodes" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestStatuses3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetRequestStatuses3Result" type="tns:ArrayOfRequestStatus3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfRequestStatus3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="RequestStatus3" nillable="true" type="tns:RequestStatus3" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetRequestRefreshable">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetRequestRefreshableResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetRequestRefreshableResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromRequestCode4Result" type="tns:ReportDetail3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode5">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionTypeCodesCSV" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromRequestCode5Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromRequestCode5Result" type="tns:ReportDetail3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultipleReportDetailsFromRequestCode">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultipleReportDetailsFromRequestCodeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMultipleReportDetailsFromRequestCodeResult" type="tns:ArrayOfReportDetail3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReportDetail3">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReportDetail3" nillable="true" type="tns:ReportDetail3" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMultipleReportDetailsFromCustomerIdentifier">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultipleReportDetailsFromCustomerIdentifierResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMultipleReportDetailsFromCustomerIdentifierResult" type="tns:ArrayOfReportDetail3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultipleReportDetailsFromRequestCode6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultipleReportDetailsFromRequestCode6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMultipleReportDetailsFromRequestCode6Result" type="tns:ArrayOfReportDetail4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfReportDetail4">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ReportDetail4" nillable="true" type="tns:ReportDetail4" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetMultipleReportDetailsFromCustomerIdentifier6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMultipleReportDetailsFromCustomerIdentifier6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMultipleReportDetailsFromCustomerIdentifier6Result" type="tns:ArrayOfReportDetail4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromCustomerIdentifier2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromCustomerIdentifier2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromCustomerIdentifier2Result" type="tns:ReportDetail2" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromCustomerIdentifier3">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromCustomerIdentifier3Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromCustomerIdentifier3Result" type="tns:ReportDetail3" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromCustomerIdentifier6">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerIdentifier" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetReportDetailFromCustomerIdentifier6Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetReportDetailFromCustomerIdentifier6Result" type="tns:ReportDetail4" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRequestWorkflowStatus">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="workflowStatus" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateRequestWorkflowStatusResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateRequestWorkflowStatusResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReAssignRequestUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="currentSiteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="newSiteUserGuid" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ReAssignRequestUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReAssignRequestUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstantRefresh">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InstantRefreshResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="InstantRefreshResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="routingNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contentServiceId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateRequest4">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customerId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="routingNumber" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contentServiceId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailAddress" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateRequest4Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateRequest4Result" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRequest">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DeleteRequestResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="DeleteRequestResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchBanksByBankName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="bankName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchBanksByBankNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchBanksByBankNameResult" type="tns:ArrayOfBanksSearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBanksSearchResult">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BanksSearchResult" nillable="true" type="tns:BanksSearchResult" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BanksSearchResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ContentServiceId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContentServiceDisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Reliability" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchBanksByCountry">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchBanksByCountryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchBanksByCountryResult" type="tns:ArrayOfBanksSearchResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankInformationByContentServiceId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="contentServiceId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankInformationByContentServiceIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankInformationByContentServiceIdResult" type="tns:BankInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="BankInformation">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ContentServiceId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="BankName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LogoURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="HomeUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactPhone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactUrl" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MFAType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RoutingNumbers" type="tns:ArrayOfString" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsACHSupportedSpecified" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="IsACHSupported" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsError" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetBankInformationByRoutingNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="routingNumber" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetBankInformationByRoutingNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetBankInformationByRoutingNumberResult" type="tns:BankInformation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProfiles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProfilesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProfilesResult" type="tns:ArrayOfProfileSummary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfProfileSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ProfileSummary" nillable="true" type="tns:ProfileSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ProfileSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProfileGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowSearch" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ShowName" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinAccountConfidence" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinAccountNumberDigits" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MinNameConfidence" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ValidateAmount" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnAccountNumber" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnHolderName" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReturnBalance" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="GatherTransactions" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="TransactionDays" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="MaxLoginAttempts" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="BypassPrelogin" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="SendParentResults" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="ParentFunctionType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="WidgetURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SuccessRedirect" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuccessURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SuccessHTML" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="FailureRedirect" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="FailureURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FailureHTML" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NotificationURL" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NotifyEmailAddress" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetProfileByName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="profileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetProfileByNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetProfileByNameResult" type="tns:ProfileSummary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUsersResult" type="tns:ArrayOfSiteUserSummary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSiteUserSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SiteUserSummary" nillable="true" type="tns:SiteUserSummary" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SiteUserSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SiteUserGuid" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Username" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EmailAddress" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LastName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="State" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="UpdateUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updatePassword" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateEmailAddress" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailAddress" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateFirstName" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateLastName" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateAddress" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateCity" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateState" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updatePostalCode" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updatePhone" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="updateStatus" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateUserResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="emailAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="state" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="phone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="role" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="status" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddUserResult" type="tns:AddUserSummary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="AddUserSummary">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Identifier" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsError" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorMessage" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchTerm" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amountMin" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="amountMax" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="isAmountAbsValue" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchTransactionsResult" type="tns:ArrayOfBankTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBankTransaction">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BankTransaction" nillable="true" type="tns:BankTransaction" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BankTransaction">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Amount" type="s:double" />
+          <s:element minOccurs="1" maxOccurs="1" name="Date" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateCreated" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DateModified" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="SearchTransactions2">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="siteUserGuid" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="searchTerm" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="amountMin" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="amountMax" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="isAmountAbsValue" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="useDateRange" type="s:boolean" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateFrom" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="dateTo" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="useAccountNumberFound" type="s:boolean" />
+            <s:element minOccurs="0" maxOccurs="1" name="accountNumberFound" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactions2Response">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SearchTransactions2Result" type="tns:ArrayOfBankTransaction" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRequestBySMS">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="serviceKey" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="toPhone" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="requestCode" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendRequestBySMSResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SendRequestBySMSResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorld_SSLOnlySoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld_SSLOnly" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorld_SSLOnlySoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorld_SSLOnlyResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchReportSummarySoapIn">
+    <wsdl:part name="parameters" element="tns:SearchReportSummary" />
+  </wsdl:message>
+  <wsdl:message name="SearchReportSummarySoapOut">
+    <wsdl:part name="parameters" element="tns:SearchReportSummaryResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchReportSummaryAdvancedSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchReportSummaryAdvanced" />
+  </wsdl:message>
+  <wsdl:message name="SearchReportSummaryAdvancedSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchReportSummaryAdvancedResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchReportSummaryAdvanced4SoapIn">
+    <wsdl:part name="parameters" element="tns:SearchReportSummaryAdvanced4" />
+  </wsdl:message>
+  <wsdl:message name="SearchReportSummaryAdvanced4SoapOut">
+    <wsdl:part name="parameters" element="tns:SearchReportSummaryAdvanced4Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode2" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode3" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode6SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode6" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode6SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode6Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode7SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode7" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode7SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode7Response" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestStatus" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatusesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestStatuses" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatusesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestStatusesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatus2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestStatus2" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatus2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestStatus2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatus3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestStatus3" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatus3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestStatus3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatuses2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestStatuses2" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatuses2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestStatuses2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatuses3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestStatuses3" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestStatuses3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestStatuses3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestRefreshableSoapIn">
+    <wsdl:part name="parameters" element="tns:GetRequestRefreshable" />
+  </wsdl:message>
+  <wsdl:message name="GetRequestRefreshableSoapOut">
+    <wsdl:part name="parameters" element="tns:GetRequestRefreshableResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode4SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode4" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode4SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode4Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode5SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode5" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromRequestCode5SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromRequestCode5Response" />
+  </wsdl:message>
+  <wsdl:message name="GetMultipleReportDetailsFromRequestCodeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMultipleReportDetailsFromRequestCode" />
+  </wsdl:message>
+  <wsdl:message name="GetMultipleReportDetailsFromRequestCodeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMultipleReportDetailsFromRequestCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMultipleReportDetailsFromCustomerIdentifierSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMultipleReportDetailsFromCustomerIdentifier" />
+  </wsdl:message>
+  <wsdl:message name="GetMultipleReportDetailsFromCustomerIdentifierSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMultipleReportDetailsFromCustomerIdentifierResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetMultipleReportDetailsFromRequestCode6SoapIn">
+    <wsdl:part name="parameters" element="tns:GetMultipleReportDetailsFromRequestCode6" />
+  </wsdl:message>
+  <wsdl:message name="GetMultipleReportDetailsFromRequestCode6SoapOut">
+    <wsdl:part name="parameters" element="tns:GetMultipleReportDetailsFromRequestCode6Response" />
+  </wsdl:message>
+  <wsdl:message name="GetMultipleReportDetailsFromCustomerIdentifier6SoapIn">
+    <wsdl:part name="parameters" element="tns:GetMultipleReportDetailsFromCustomerIdentifier6" />
+  </wsdl:message>
+  <wsdl:message name="GetMultipleReportDetailsFromCustomerIdentifier6SoapOut">
+    <wsdl:part name="parameters" element="tns:GetMultipleReportDetailsFromCustomerIdentifier6Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromCustomerIdentifier2SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromCustomerIdentifier2" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromCustomerIdentifier2SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromCustomerIdentifier2Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromCustomerIdentifier3SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromCustomerIdentifier3" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromCustomerIdentifier3SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromCustomerIdentifier3Response" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromCustomerIdentifier6SoapIn">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromCustomerIdentifier6" />
+  </wsdl:message>
+  <wsdl:message name="GetReportDetailFromCustomerIdentifier6SoapOut">
+    <wsdl:part name="parameters" element="tns:GetReportDetailFromCustomerIdentifier6Response" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRequestWorkflowStatusSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateRequestWorkflowStatus" />
+  </wsdl:message>
+  <wsdl:message name="UpdateRequestWorkflowStatusSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateRequestWorkflowStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="ReAssignRequestUserSoapIn">
+    <wsdl:part name="parameters" element="tns:ReAssignRequestUser" />
+  </wsdl:message>
+  <wsdl:message name="ReAssignRequestUserSoapOut">
+    <wsdl:part name="parameters" element="tns:ReAssignRequestUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="InstantRefreshSoapIn">
+    <wsdl:part name="parameters" element="tns:InstantRefresh" />
+  </wsdl:message>
+  <wsdl:message name="InstantRefreshSoapOut">
+    <wsdl:part name="parameters" element="tns:InstantRefreshResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateRequest" />
+  </wsdl:message>
+  <wsdl:message name="CreateRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateRequest4SoapIn">
+    <wsdl:part name="parameters" element="tns:CreateRequest4" />
+  </wsdl:message>
+  <wsdl:message name="CreateRequest4SoapOut">
+    <wsdl:part name="parameters" element="tns:CreateRequest4Response" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRequestSoapIn">
+    <wsdl:part name="parameters" element="tns:DeleteRequest" />
+  </wsdl:message>
+  <wsdl:message name="DeleteRequestSoapOut">
+    <wsdl:part name="parameters" element="tns:DeleteRequestResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchBanksByBankNameSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchBanksByBankName" />
+  </wsdl:message>
+  <wsdl:message name="SearchBanksByBankNameSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchBanksByBankNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchBanksByCountrySoapIn">
+    <wsdl:part name="parameters" element="tns:SearchBanksByCountry" />
+  </wsdl:message>
+  <wsdl:message name="SearchBanksByCountrySoapOut">
+    <wsdl:part name="parameters" element="tns:SearchBanksByCountryResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankInformationByContentServiceIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankInformationByContentServiceId" />
+  </wsdl:message>
+  <wsdl:message name="GetBankInformationByContentServiceIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankInformationByContentServiceIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetBankInformationByRoutingNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:GetBankInformationByRoutingNumber" />
+  </wsdl:message>
+  <wsdl:message name="GetBankInformationByRoutingNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:GetBankInformationByRoutingNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProfilesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProfiles" />
+  </wsdl:message>
+  <wsdl:message name="GetProfilesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProfilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetProfileByNameSoapIn">
+    <wsdl:part name="parameters" element="tns:GetProfileByName" />
+  </wsdl:message>
+  <wsdl:message name="GetProfileByNameSoapOut">
+    <wsdl:part name="parameters" element="tns:GetProfileByNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="UpdateUserSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddUserSoapIn">
+    <wsdl:part name="parameters" element="tns:AddUser" />
+  </wsdl:message>
+  <wsdl:message name="AddUserSoapOut">
+    <wsdl:part name="parameters" element="tns:AddUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapIn">
+    <wsdl:part name="parameters" element="tns:SearchTransactions" />
+  </wsdl:message>
+  <wsdl:message name="SearchTransactionsSoapOut">
+    <wsdl:part name="parameters" element="tns:SearchTransactionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="SearchTransactions2SoapIn">
+    <wsdl:part name="parameters" element="tns:SearchTransactions2" />
+  </wsdl:message>
+  <wsdl:message name="SearchTransactions2SoapOut">
+    <wsdl:part name="parameters" element="tns:SearchTransactions2Response" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestBySMSSoapIn">
+    <wsdl:part name="parameters" element="tns:SendRequestBySMS" />
+  </wsdl:message>
+  <wsdl:message name="SendRequestBySMSSoapOut">
+    <wsdl:part name="parameters" element="tns:SendRequestBySMSResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IntegrationSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld_SSLOnly">
+      <wsdl:input message="tns:HelloWorld_SSLOnlySoapIn" />
+      <wsdl:output message="tns:HelloWorld_SSLOnlySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummary">
+      <wsdl:input message="tns:SearchReportSummarySoapIn" />
+      <wsdl:output message="tns:SearchReportSummarySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummaryAdvanced">
+      <wsdl:input message="tns:SearchReportSummaryAdvancedSoapIn" />
+      <wsdl:output message="tns:SearchReportSummaryAdvancedSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummaryAdvanced4">
+      <wsdl:input message="tns:SearchReportSummaryAdvanced4SoapIn" />
+      <wsdl:output message="tns:SearchReportSummaryAdvanced4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode">
+      <wsdl:input message="tns:GetReportDetailFromRequestCodeSoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromRequestCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode2">
+      <wsdl:input message="tns:GetReportDetailFromRequestCode2SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromRequestCode2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode3">
+      <wsdl:input message="tns:GetReportDetailFromRequestCode3SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromRequestCode3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode6">
+      <wsdl:input message="tns:GetReportDetailFromRequestCode6SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromRequestCode6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode7">
+      <wsdl:input message="tns:GetReportDetailFromRequestCode7SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromRequestCode7SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus">
+      <wsdl:input message="tns:GetRequestStatusSoapIn" />
+      <wsdl:output message="tns:GetRequestStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses">
+      <wsdl:input message="tns:GetRequestStatusesSoapIn" />
+      <wsdl:output message="tns:GetRequestStatusesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus2">
+      <wsdl:input message="tns:GetRequestStatus2SoapIn" />
+      <wsdl:output message="tns:GetRequestStatus2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus3">
+      <wsdl:input message="tns:GetRequestStatus3SoapIn" />
+      <wsdl:output message="tns:GetRequestStatus3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses2">
+      <wsdl:input message="tns:GetRequestStatuses2SoapIn" />
+      <wsdl:output message="tns:GetRequestStatuses2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses3">
+      <wsdl:input message="tns:GetRequestStatuses3SoapIn" />
+      <wsdl:output message="tns:GetRequestStatuses3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestRefreshable">
+      <wsdl:input message="tns:GetRequestRefreshableSoapIn" />
+      <wsdl:output message="tns:GetRequestRefreshableSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode4">
+      <wsdl:input message="tns:GetReportDetailFromRequestCode4SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromRequestCode4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode5">
+      <wsdl:input message="tns:GetReportDetailFromRequestCode5SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromRequestCode5SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromRequestCode">
+      <wsdl:input message="tns:GetMultipleReportDetailsFromRequestCodeSoapIn" />
+      <wsdl:output message="tns:GetMultipleReportDetailsFromRequestCodeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromCustomerIdentifier">
+      <wsdl:input message="tns:GetMultipleReportDetailsFromCustomerIdentifierSoapIn" />
+      <wsdl:output message="tns:GetMultipleReportDetailsFromCustomerIdentifierSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromRequestCode6">
+      <wsdl:input message="tns:GetMultipleReportDetailsFromRequestCode6SoapIn" />
+      <wsdl:output message="tns:GetMultipleReportDetailsFromRequestCode6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromCustomerIdentifier6">
+      <wsdl:input message="tns:GetMultipleReportDetailsFromCustomerIdentifier6SoapIn" />
+      <wsdl:output message="tns:GetMultipleReportDetailsFromCustomerIdentifier6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier2">
+      <wsdl:input message="tns:GetReportDetailFromCustomerIdentifier2SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromCustomerIdentifier2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier3">
+      <wsdl:input message="tns:GetReportDetailFromCustomerIdentifier3SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromCustomerIdentifier3SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier6">
+      <wsdl:input message="tns:GetReportDetailFromCustomerIdentifier6SoapIn" />
+      <wsdl:output message="tns:GetReportDetailFromCustomerIdentifier6SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestWorkflowStatus">
+      <wsdl:input message="tns:UpdateRequestWorkflowStatusSoapIn" />
+      <wsdl:output message="tns:UpdateRequestWorkflowStatusSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ReAssignRequestUser">
+      <wsdl:input message="tns:ReAssignRequestUserSoapIn" />
+      <wsdl:output message="tns:ReAssignRequestUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InstantRefresh">
+      <wsdl:input message="tns:InstantRefreshSoapIn" />
+      <wsdl:output message="tns:InstantRefreshSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRequest">
+      <wsdl:input message="tns:CreateRequestSoapIn" />
+      <wsdl:output message="tns:CreateRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRequest4">
+      <wsdl:input message="tns:CreateRequest4SoapIn" />
+      <wsdl:output message="tns:CreateRequest4SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRequest">
+      <wsdl:input message="tns:DeleteRequestSoapIn" />
+      <wsdl:output message="tns:DeleteRequestSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchBanksByBankName">
+      <wsdl:input message="tns:SearchBanksByBankNameSoapIn" />
+      <wsdl:output message="tns:SearchBanksByBankNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchBanksByCountry">
+      <wsdl:input message="tns:SearchBanksByCountrySoapIn" />
+      <wsdl:output message="tns:SearchBanksByCountrySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformationByContentServiceId">
+      <wsdl:input message="tns:GetBankInformationByContentServiceIdSoapIn" />
+      <wsdl:output message="tns:GetBankInformationByContentServiceIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformationByRoutingNumber">
+      <wsdl:input message="tns:GetBankInformationByRoutingNumberSoapIn" />
+      <wsdl:output message="tns:GetBankInformationByRoutingNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfiles">
+      <wsdl:input message="tns:GetProfilesSoapIn" />
+      <wsdl:output message="tns:GetProfilesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileByName">
+      <wsdl:input message="tns:GetProfileByNameSoapIn" />
+      <wsdl:output message="tns:GetProfileByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input message="tns:GetUsersSoapIn" />
+      <wsdl:output message="tns:GetUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input message="tns:UpdateUserSoapIn" />
+      <wsdl:output message="tns:UpdateUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <wsdl:input message="tns:AddUserSoapIn" />
+      <wsdl:output message="tns:AddUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <wsdl:input message="tns:SearchTransactionsSoapIn" />
+      <wsdl:output message="tns:SearchTransactionsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions2">
+      <wsdl:input message="tns:SearchTransactions2SoapIn" />
+      <wsdl:output message="tns:SearchTransactions2SoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestBySMS">
+      <wsdl:input message="tns:SendRequestBySMSSoapIn" />
+      <wsdl:output message="tns:SendRequestBySMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IntegrationSoap" type="tns:IntegrationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://www.decisionlogic.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld_SSLOnly">
+      <soap:operation soapAction="http://www.decisionlogic.com/HelloWorld_SSLOnly" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummary">
+      <soap:operation soapAction="http://www.decisionlogic.com/SearchReportSummary" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummaryAdvanced">
+      <soap:operation soapAction="http://www.decisionlogic.com/SearchReportSummaryAdvanced" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummaryAdvanced4">
+      <soap:operation soapAction="http://www.decisionlogic.com/SearchReportSummaryAdvanced4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode2">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode3">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode6">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode7">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode7" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetRequestStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetRequestStatuses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus2">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetRequestStatus2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus3">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetRequestStatus3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses2">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetRequestStatuses2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses3">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetRequestStatuses3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestRefreshable">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetRequestRefreshable" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode4">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode5">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode5" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromRequestCode">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetMultipleReportDetailsFromRequestCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromCustomerIdentifier">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetMultipleReportDetailsFromCustomerIdentifier" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromRequestCode6">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetMultipleReportDetailsFromRequestCode6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromCustomerIdentifier6">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetMultipleReportDetailsFromCustomerIdentifier6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier2">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromCustomerIdentifier2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier3">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromCustomerIdentifier3" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier6">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromCustomerIdentifier6" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestWorkflowStatus">
+      <soap:operation soapAction="http://www.decisionlogic.com/UpdateRequestWorkflowStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReAssignRequestUser">
+      <soap:operation soapAction="http://www.decisionlogic.com/ReAssignRequestUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InstantRefresh">
+      <soap:operation soapAction="http://www.decisionlogic.com/InstantRefresh" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRequest">
+      <soap:operation soapAction="http://www.decisionlogic.com/CreateRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRequest4">
+      <soap:operation soapAction="http://www.decisionlogic.com/CreateRequest4" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRequest">
+      <soap:operation soapAction="http://www.decisionlogic.com/DeleteRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchBanksByBankName">
+      <soap:operation soapAction="http://www.decisionlogic.com/SearchBanksByBankName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchBanksByCountry">
+      <soap:operation soapAction="http://www.decisionlogic.com/SearchBanksByCountry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformationByContentServiceId">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetBankInformationByContentServiceId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformationByRoutingNumber">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetBankInformationByRoutingNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfiles">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetProfiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileByName">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetProfileByName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://www.decisionlogic.com/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://www.decisionlogic.com/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap:operation soapAction="http://www.decisionlogic.com/AddUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap:operation soapAction="http://www.decisionlogic.com/SearchTransactions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions2">
+      <soap:operation soapAction="http://www.decisionlogic.com/SearchTransactions2" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestBySMS">
+      <soap:operation soapAction="http://www.decisionlogic.com/SendRequestBySMS" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IntegrationSoap12" type="tns:IntegrationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://www.decisionlogic.com/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HelloWorld_SSLOnly">
+      <soap12:operation soapAction="http://www.decisionlogic.com/HelloWorld_SSLOnly" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummary">
+      <soap12:operation soapAction="http://www.decisionlogic.com/SearchReportSummary" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummaryAdvanced">
+      <soap12:operation soapAction="http://www.decisionlogic.com/SearchReportSummaryAdvanced" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchReportSummaryAdvanced4">
+      <soap12:operation soapAction="http://www.decisionlogic.com/SearchReportSummaryAdvanced4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode2">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode3">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode6">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode7">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode7" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetRequestStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetRequestStatuses" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus2">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetRequestStatus2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatus3">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetRequestStatus3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses2">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetRequestStatuses2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestStatuses3">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetRequestStatuses3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRequestRefreshable">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetRequestRefreshable" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode4">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromRequestCode5">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromRequestCode5" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromRequestCode">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetMultipleReportDetailsFromRequestCode" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromCustomerIdentifier">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetMultipleReportDetailsFromCustomerIdentifier" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromRequestCode6">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetMultipleReportDetailsFromRequestCode6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMultipleReportDetailsFromCustomerIdentifier6">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetMultipleReportDetailsFromCustomerIdentifier6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier2">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromCustomerIdentifier2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier3">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromCustomerIdentifier3" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetReportDetailFromCustomerIdentifier6">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetReportDetailFromCustomerIdentifier6" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateRequestWorkflowStatus">
+      <soap12:operation soapAction="http://www.decisionlogic.com/UpdateRequestWorkflowStatus" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReAssignRequestUser">
+      <soap12:operation soapAction="http://www.decisionlogic.com/ReAssignRequestUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InstantRefresh">
+      <soap12:operation soapAction="http://www.decisionlogic.com/InstantRefresh" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRequest">
+      <soap12:operation soapAction="http://www.decisionlogic.com/CreateRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRequest4">
+      <soap12:operation soapAction="http://www.decisionlogic.com/CreateRequest4" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteRequest">
+      <soap12:operation soapAction="http://www.decisionlogic.com/DeleteRequest" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchBanksByBankName">
+      <soap12:operation soapAction="http://www.decisionlogic.com/SearchBanksByBankName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchBanksByCountry">
+      <soap12:operation soapAction="http://www.decisionlogic.com/SearchBanksByCountry" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformationByContentServiceId">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetBankInformationByContentServiceId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBankInformationByRoutingNumber">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetBankInformationByRoutingNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfiles">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetProfiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProfileByName">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetProfileByName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap12:operation soapAction="http://www.decisionlogic.com/GetUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap12:operation soapAction="http://www.decisionlogic.com/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUser">
+      <soap12:operation soapAction="http://www.decisionlogic.com/AddUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions">
+      <soap12:operation soapAction="http://www.decisionlogic.com/SearchTransactions" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTransactions2">
+      <soap12:operation soapAction="http://www.decisionlogic.com/SearchTransactions2" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendRequestBySMS">
+      <soap12:operation soapAction="http://www.decisionlogic.com/SendRequestBySMS" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Integration">
+    <wsdl:port name="IntegrationSoap" binding="tns:IntegrationSoap">
+      <soap:address location="https://www.decisionlogic.com/integration.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IntegrationSoap12" binding="tns:IntegrationSoap12">
+      <soap12:address location="https://www.decisionlogic.com/integration.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
